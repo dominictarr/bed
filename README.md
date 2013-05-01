@@ -1,6 +1,6 @@
-# post-hipster
+# bed (Browser EDitor)
 
-Go write your own text editor! This one is mine.
+I woke up in the middle of the night and wrote this in bed.
 
 ## License
 

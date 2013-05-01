@@ -1,11 +1,11 @@
 {
-  "name": "post-hipster",
+  "name": "bed",
   "description": "",
   "version": "0.0.0",
-  "homepage": "https://github.com/dominictarr/post-hipster",
+  "homepage": "https://github.com/dominictarr/bed",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dominictarr/post-hipster.git"
+    "url": "git://github.com/dominictarr/bed.git"
   },
   "dependencies": {
     "js-tokenizer": "~1.2"
