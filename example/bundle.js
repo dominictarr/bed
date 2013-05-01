@@ -21,22 +21,22 @@ var pattern = {
 , comment2   : /\/\/.*?\n/
 , whitespace : /\s+/
 , keyword    : /\b(?:var|let|for|in|class|function|return|with|case|break|switch|export|new)\b/
+, regexp     : /\/(?:(?:\\\/|[^\/]))*?\//
 , name       : /[a-zA-Z_\$][a-zA-Z_\$0-9]*/
 , number     : /-?\d+(?:\.\d+)?(?:e[+-]?\d+)?/
-, regexp     : /\/(?:(?:\\\/|[^\/]))*?\//
 , punct      : /[;.:\?\^%()\{\}?\[\]<>=!&|+\-,]/
 }
 
 var match = combine(
-  pattern.string1,
-  pattern.string2,
-  pattern.comment1,
-  pattern.comment2, 
-  pattern.whitespace,
-  pattern.name,
-  pattern.number,
-  pattern.regexp,
-  pattern.punct
+  pattern.string1
+, pattern.string2
+, pattern.comment1
+, pattern.comment2
+, pattern.regexp
+, pattern.whitespace
+, pattern.name
+, pattern.number
+, pattern.punct
 )
 
 module.exports = function (str, doNotThrow) {
@@ -44,10 +44,11 @@ module.exports = function (str, doNotThrow) {
     if(i % 2)
       return true
 
-    if(e !== '' && !doNotThrow)
-      throw new Error('invalid token:'+JSON.stringify(e))
-    else
+    if(e !== '') {
+      if(!doNotThrow)
+        throw new Error('invalid token:'+JSON.stringify(e))
       return true
+    }
   })
 }
 
@@ -70,8 +71,9 @@ module.exports = function () {
     },
     style: {
       overflow: 'auto',
-//this works, but then I don't know where to put the cursor.
-//      'white-space': 'pre-wrap'
+      //this works, but then I don't know where to put the cursor.
+      //      'white-space': 'pre-wrap'
+      //so, currently there is no wrapping...
     }
   }, cursor)
 
@@ -130,8 +132,7 @@ module.exports = function () {
     , 'font-family': 'monospace'
     , margin       : '0px'
     , padding      : '0px'
-//    , width        : '100%'
-    ,  border      : 'none'
+    , border      : 'none'
     , 'font-size'  : getComputedStyle(pre)['font-size']
     , resize: 'none'
     },
@@ -140,13 +141,14 @@ module.exports = function () {
 
   update.call(ta)
 
+  //default highlighting. move this to a css file...
   var style = h('style',
     '.punct               {color: grey}'
   , '.string1, .string2   {color: yellow}'
   , '.number              {color: orange}'
   , '.keyword             {color: green}'
   , '.comment1, .comment2 {color: blue}'
-  , '.regexp              {color: purple}'
+  , '.regexp              {color: lightblue}'
   , '.invalid             {background: red}'
   , '.name                {color: #ccc}'
   , '.code                {background: #333; padding: 10px}'
