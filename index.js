@@ -35,6 +35,9 @@ module.exports = function () {
     ].forEach(function (e) {
       ta.style[e] = computed[e]
     })
+
+    //obviously, doing stuff like this everytime you press a button is pretty dumb.
+    //fix later!
     var lines = ta.value.split('\n')
     var height = lines.length
     var width  = lines.sort(function (a, b) { return b.length - a.length }).shift().length
@@ -52,6 +55,10 @@ module.exports = function () {
   function update () {
     pre.innerHTML = ''
     pre.appendChild(cursor)
+    //everytime you press a button, remove all the elements
+    //split all the text with a regexp.
+    //and recreate all the elements.
+    //this can be dramatically improved.
     tokenize(this.value || '', true).forEach(function (e) {
       pre.appendChild(h('span.'+tokenize.type(e), e))
     })
@@ -70,7 +77,7 @@ module.exports = function () {
     , 'font-family': 'monospace'
     , margin       : '0px'
     , padding      : '0px'
-    , -border      : 'none'
+    , border      : 'none'
     , 'font-size'  : getComputedStyle(pre)['font-size']
     , resize: 'none'
     },
@@ -86,7 +93,7 @@ module.exports = function () {
   , '.number              {color: orange}'
   , '.keyword             {color: green}'
   , '.comment1, .comment2 {color: blue}'
-  , '.regexp              {color: purple}'
+  , '.regexp              {color: lightblue}'
   , '.invalid             {background: red}'
   , '.name                {color: #ccc}'
   , '.code                {background: #333; padding: 10px}'
@@ -95,3 +102,4 @@ module.exports = function () {
 
   return h('div', style, ta, pre,  {style: {position: 'relative'}})
 }
+
