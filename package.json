@@ -8,7 +8,8 @@
     "url": "git://github.com/dominictarr/bed.git"
   },
   "dependencies": {
-    "js-tokenizer": "~1.2"
+    "js-tokenizer": "~1.2",
+    "adiff": "~0.2.7"
   },
   "devDependencies": {},
   "scripts": {
