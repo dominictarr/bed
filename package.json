@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "js-tokenizer": "~1.2",
-    "adiff": "~0.2.7"
+    "adiff": "~0.2.7",
+    "hyperscript": "~1.2.3"
   },
   "devDependencies": {},
   "scripts": {
