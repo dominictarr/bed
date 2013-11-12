@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dominictarr/example",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/example.git"
+  },
+  "dependencies": {
+    "ecstatic": "~0.4.2",
+    "r-edit": "~0.2.2",
+    "shoe": "0.0.10",
+    "reconnect": "~1.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
